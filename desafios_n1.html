@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: 'lato', sans-serif;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+  small {
+    font-size: 0.5em;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 4px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+</style>
+
+<script>
+
+var imgs = new Array ("star_gold","starb","star","star_gray","star_white","phantom","dna")
+
+  
+  var tias = new Array ( 1524,
+2209,
+2245,
+2261,
+2403,
+3125,
+3273,
+4133,
+4287,
+4964,
+5764,
+5901,
+6235,
+6541,
+7209,
+8554,
+8555,
+9915,
+9921
+)
+
+var ns = [[1,1,1,1,0,1,1,0,0,0,1,1,0,0,1,1,1,1,1],
+[1,1,1,0.5,1,1,1,1,1,0.55,1,1,1,1,1,1,1,1,1],
+[1,1,0.75,0.5,1,1,1,1,1,0.55,1,1,1,1,1,1,1,1,1],
+[1,1,1,0.75,1,1,1,1,1,0.95,1,1,1,1,1,1,1,1,1],
+[1,0.5,1,-0.01,0.2,0.5,-0.01,0,0.5,0,0.5,-0.01,-0.01,0.4,0.5,0.5,0.75,0.5,0.5],
+[1,-0.01,1,-0.01,1,-0.01,0.5,0.3,0,0,1,0,0,0.4,0,0.7,1,0.8,1],
+[1,-0.01,1,0.85,1,-0.01,-0.01,0,1,-0.01,1,0.5,1,-0.01,0.5,0.87,1,1,1],
+[1,1,1,0.95,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1]]
+
+
+</script>
+</head>
+<BODY>
+  <h2>Desafios N1</h2><p/>
+  <font face="Verdana" size="-1">
+  <TABLE>
+      <TR><TD>TIA4</TD>
+	  <script>
+	  for (i=1;i<=8;i++)
+	   document.write("<TD BGCOLOR='#FFC0C0'>D"+i+"</TD>")
+	  </script>
+      </TR>
+  
+  <script>
+  var NR = 8;
+  
+  function rot(k,n)
+  {
+   n = ns[k][n];
+     n = (n==1) ? n=6 : (n>=0.8) ? n=5 : (n>= 0.5) ? n=4 : (n>= 0.2) ? n=3 : (n>0) ? n=2 : (n==0) ? 1 : 0;
+   return n;
+  }
+            
+  
+  function f(k,n) 
+  { str = "<IMG SRC='"+imgs[6-rot(k,n)]+".png' WIDTH=50 HEIGHT=50>" 
+  return str; }
+  
+   for (i=0; i<tias.length; i++)
+   {  document.write("<TR><TD>"+ tias[i]+"</TD>")
+      
+      for (k=0; k<NR; k++)
+       document.write("<TD>"+f(k,i)+"</TD>")
+      
+      document.write("</TR>")
+   }
+  </script>
+ </ul>
+</div>
+</body></html>
