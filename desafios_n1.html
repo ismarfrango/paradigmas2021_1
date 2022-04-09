@@ -95,8 +95,10 @@ var ns = [[1,1,1,1,0,1,1,0,0,0,1,1,0,0,1,1,1,1,1],
    {  document.write("<TR><TD>"+ tias[i]+"</TD>")
       
       for (k=0; k<NR; k++)
-       document.write("<TD>"+f(k,i)+"</TD>")
-      
+      {document.write("<TD>"+f(k,i));
+       if (k==5 || k==6) document.write(f(k,i))
+       document.write("</TD>")
+      }
       document.write("</TR>")
    }
   </script>
