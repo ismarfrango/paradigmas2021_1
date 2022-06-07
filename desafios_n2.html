@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: 'lato', sans-serif;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+  small {
+    font-size: 0.5em;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 4px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+</style>
+
+<script>
+
+var imgs = new Array ("trophy2","star_gold","starb","star","star_gray","star_white","phantom","dna")
+
+var weights = new Array (0.5,1,1,1,1,2,1,2,1,1,0.5,0.5)
+var titles =  new Array ("S9_ex","D9","D10","SuperD[0]","SuperD[1]","SuperD[2]","SuperD[3]","SuperD[4]","D11","D12","B1","B2")
+
+var tias = new Array (4133,6235,9921,2209 ,6541,2403,3273,3125,1524,7209,2261,2245,4964,5901,5764,9915,4287,8555,8554)
+
+var ns = [[1,0.9,0,0.3,0.3,0,0,0,0,0,1,0],
+[1,1,0.8,1,1,0.5,0.5,0.2,1,0.7,1,0],
+[0.8,1,0.8,1,1,0,0,0,1,1,1,0],
+[1,1,0.8,1,1,1,1,0,1,0.01,0,0],
+[1,1,0.01,0.5,0.5,0.2,0,0,1,0.01,1,1],
+[1,1,0.01,1,1,0.5,0.5,0.2,1,0.5,1,1],
+[1,1,0.8,0,0,0,0,0,1,0.7,1,0],
+[1,1,0.6,0.5,0.5,0.2,0,0,1,0.01,0,0],
+[1,1,0.01,0.8,0.6,0.5,0,0,1,0.01,1,0],
+[1,0,0,1,1,1,1,0,0,0,1,0],
+[1,1,0.8,1,1,1,1,0,1,0.7,1,0],
+[1,1,0.01,0.8,0.6,0.5,0,0,1,0.01,0,0],
+[1,1,0.01,1,0.9,0,0,0,1,0.7,1,0],
+[1,1,0.8,0.5,0.3,0,0,0,0,0,1,0],
+[1,1,0.01,1,0.9,0,0,0,1,0.01,1,0],
+[1,1,0.5,1,1,0.5,0.5,0,1,0.7,1,1],
+[1,1,0.8,1,1,1,1,1.1,1,0.01,1,1],
+[1,1,0.8,1,1,1,1,0,1,0.9,1,0],
+[1,1,0.8,1,1,1,1,0,0.9,0.01,1,0]]
+
+
+</script>
+</head>
+<BODY>
+  <h2>Desafios N2</h2><p/>
+
+  <TABLE>
+      <TR><TD>TIA4</TD>
+	  <script>
+	  for (i=0;i<titles.length;i++)
+	   document.write("<TD BGCOLOR='#FFC0C0'>"+titles[i]+"</TD>")
+	  </script>
+      </TR>
+  
+  <script>
+  
+  function rot(k,i)
+  {
+   n = ns[i][k];
+     n = (n==1.1) ? n=8 : (n==1) ? n=7 : (n>=0.8) ? n=6 : (n>= 0.5) ? n=5 : (n>= 0.2) ? n=4 : (n>=0.02) ? n=3 : (n==0) ? 2 : 1;
+   return n;
+  }
+            
+  
+  function f(k,i) 
+  { 
+  substr = (weights[k]==0.5) ? "halfstar" : imgs[(imgs.length)-rot(k,i)]
+  str = "<IMG SRC='"+substr+".png' WIDTH=50 HEIGHT=50>" 
+  return str; 
+  }
+  
+   for (i=0; i<tias.length; i++)
+   {  document.write("<TR><TD>"+ tias[i]+"</TD>")   
+      for (k=0; k<titles.length; k++)
+      {
+       icon = f(k,i);	
+	   document.write("<TD>")
+	   if (ns[i][k]==0 || ns[i][k]==1.1) document.write(icon);
+	   else for(m=0;m<weights[k];m++)
+			document.write(icon);
+       document.write("</TD>")
+      }
+      document.write("</TR>")
+   }
+  </script>
+ </ul>
+</div>
+</body></html>
